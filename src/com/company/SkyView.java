@@ -1,6 +1,7 @@
 package com.company;
 
 public class SkyView {
+    private double[][] view;
     public SkyView(int numRows, int numCols, double[] scanned)
     {
         double[][] view = new double[numRows][numCols];
@@ -28,6 +29,17 @@ public class SkyView {
 
     public double getAverage(int startRow, int endRow, int startCol, int endCol)
     {
-        
+        int sum = 0;
+        int count = 0;
+        for (int r = startRow; r < endRow; r++)
+        {
+            for (int c = startCol; c < endCol; c++)
+            {
+                sum += view[r][c];
+                count++;
+            }
+        }
+        int avg = sum/count;
+        return avg;
     }
 }
